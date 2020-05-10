@@ -10,7 +10,66 @@
     <title>Hello World</title>
   </head>
   <body>
-    <h1>Olá mundo</h1>
+    <section>
+      <div class="container">
+        <img src="./assets/img/logo.svg" alt="Logo" />
+        <h1>Find your next green friend</h1>
+
+        <form>
+          <div class="questions">
+            <div class="question">
+              <div class="question__pic"></div>
+              <div class="question__title">
+                1. Set the amount of sunlight your plant will get.
+              </div>
+              <select
+                class="question__input"
+                name="sunlight"
+                data-js="sunlight"
+              >
+                <option value="">Select...</option>
+                <option value="high">High sunlight</option>
+                <option value="low">Low sunlight</option>
+                <option value="no">No sunlight</option>
+              </select>
+            </div>
+            <div class="question">
+              <div class="question__pic"></div>
+              <div class="question__title">
+                2. How often do you want to water your plant?
+              </div>
+              <select class="question__input" name="water" data-js="water">
+                <option value="">Select...</option>
+                <option value="daily">Daily</option>
+                <option value="regularly">Regularly</option>
+                <option value="rarely">Rarely</option>
+              </select>
+            </div>
+            <div class="question">
+              <div class="question__pic"></div>
+              <div class="question__title">
+                3. Do you have pets? Do they chew plants?
+              </div>
+              <select class="question__input" name="pet" data-js="pet">
+                <option value="">Select...</option>
+                <option value="false">No/They don’t care</option>
+                <option value="true">Yes</option>
+              </select>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+        <img src="" alt="" />
+        <h2>
+          Our picks for you
+        </h2>
+        <div class="result-list"></div>
+      </div>
+    </section>
+
     <script type="module" src="./main.js"></script>
   </body>
 </html>
