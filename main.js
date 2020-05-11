@@ -42,7 +42,14 @@ const $filter = {
 
   function renderList(plants) {
     console.log("plants", plants);
-    const $fragment = document.createDocumentFragment();
+
+    let plantsCards = [];
+
+    if (Array.isArray(plants)) {
+      plants.map((plant) => plantsCards.push(Plants.renderPlantCard(plant)));
+    }
+
+    $resultList.innerHTML = plantsCards.join("");
   }
 
   init();

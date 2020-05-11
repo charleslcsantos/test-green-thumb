@@ -31,6 +31,31 @@ function getPlants(sunlight, water, pet) {
   });
 }
 
+function renderPlantCard(plant) {
+  return `
+    <div class="card">
+      <img src="${plant.url}" alt="" class="card__pic" />
+      <div class="card__title">${plant.name}</div>
+      <div class="card-note">
+        <div class="card__title">${plant.price}</div>
+        <div class="card__icons">
+          ${renderPlantFeatureIcons(plant)}
+          
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderPlantFeatureIcons(plant) {
+  // <div class="icon-high-sun"></div>
+  //             <div class="icon-one-drop"></div>
+  return `
+    <div class="icon-pet"></div>
+  `;
+}
+
 export const Plants = {
   getPlants,
+  renderPlantCard,
 };
