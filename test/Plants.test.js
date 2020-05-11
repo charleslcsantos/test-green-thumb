@@ -33,10 +33,10 @@ describe("#Plants", () => {
     });
   });
 
-  it("should return 200 status if all options has selected", (done) => {
+  it("should return a array if all options has selected", (done) => {
     Plants.getPlants("high", "rarely", "false").then((r) => {
       done();
-      expect(r.status).to.be.equal(200);
+      expect(r).to.be.an.instanceof(Array);
     });
   });
 });
