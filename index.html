@@ -11,9 +11,9 @@
     <title>Hello World</title>
   </head>
   <body>
-    <section>
+    <section class="section-form">
       <div class="container">
-        <img src="./assets/img/logo.svg" alt="Logo" />
+        <img class="page-logo" src="./assets/img/logo.svg" alt="Logo" />
         <h1 class="page-title">Find your next green friend</h1>
 
         <form data-js="form">
@@ -24,10 +24,10 @@
                 src="./assets/img/icon-sun.png"
                 alt="icon sun"
               />
-              <div class="question__title">
+              <p class="question__title">
                 <strong>1.</strong> Set the amount of
                 <strong>sunlight</strong> your plant will get.
-              </div>
+              </p>
               <div class="question__input">
                 <select name="sunlight" data-js="sunlight">
                   <option value="">Select...</option>
@@ -44,10 +44,10 @@
                 src="./assets/img/icon-wateringcan.png"
                 alt="icon wateringcan"
               />
-              <div class="question__title">
+              <p class="question__title">
                 <strong>2.</strong> How often do you want to
                 <strong>water</strong> your plant?
-              </div>
+              </p>
               <div class="question__input">
                 <select name="water" data-js="water">
                   <option value="">Select...</option>
@@ -64,10 +64,10 @@
                 src="./assets/img/icon-dog.png"
                 alt="icon dog"
               />
-              <div class="question__title">
+              <p class="question__title">
                 <strong>3.</strong> Do you have pets? Do they
                 <strong>chew</strong> plants?
-              </div>
+              </p>
               <div class="question__input">
                 <select name="pet" data-js="pet">
                   <option value="">Select...</option>
@@ -80,14 +80,8 @@
         </form>
       </div>
     </section>
-    <section>
-      <div class="container">
-        <img src="" alt="" />
-        <h2>
-          Our picks for you
-        </h2>
-        <div data-js="resultList"></div>
-      </div>
+    <section class="section-result">
+      <div data-js="resultList"></div>
     </section>
 
     <script type="module" src="./main.js"></script>

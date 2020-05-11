@@ -60,19 +60,27 @@ function renderResultList(plants) {
     let plantsCards = [];
     plants.map((plant) => plantsCards.push(Plants.renderPlantCard(plant)));
     return `
-      <div class="result-list">
-        ${plantsCards.join("")}
+      <div class="container">
+        <img src="" alt="" />
+        <h2>
+          Our picks for you
+        </h2>
+        <div class="result-list">
+          ${plantsCards.join("")}
+        </div>
       </div>
     `;
   } else {
     return `
       <div class="no-results">
-        <p>No results yet…</p>
-        <p>
-          Use the filters above to find the plant that best fits your
-          environment :)
-        </p>
-        <img src="" alt="" />
+        <div class="container">
+          <p class="no-results__title">No results yet…</p>
+          <p class="no-results__note">
+            Use the filters above to find the plant that best fits your
+            environment :)
+          </p>
+        </div>
+        <img class="no-results__pic" src="./assets/img/no-results.png" alt="No results illustration" />
       </div>
     `;
   }
