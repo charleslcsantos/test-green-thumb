@@ -13,6 +13,13 @@
     "mocha": "^7.1.2",
     "node-fetch": "^2.6.0",
     "nodemon": "^2.0.3",
-    "nyc": "^15.0.1"
+    "nyc": "^15.0.1",
+    "browser-sync": "^2.12.10",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.9",
+    "gulp-sass": "^2.3.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "run-sequence": "^1.2.1",
+    "gulp-strip-css-comments": "^1.2.0"
   }
 }
