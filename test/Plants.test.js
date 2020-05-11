@@ -42,14 +42,20 @@ describe("#Plants", () => {
 });
 
 describe("#Render components", () => {
-  it("should display no results component when pass an empty array", () => {
+  it("should display no results component if pass an empty array to renderResultList", () => {
     expect(Plants.renderResultList([])).to.contain("no-results");
   });
 
-  it("should display no results component when getPlants return error", (done) => {
-    Plants.getPlants("invalid", "rarely", "false").catch(() => {
-      done();
-      expect(Plants.renderResultList(null)).to.contain("no-results");
-    });
+  it("should display no results component if pass null value to renderResultList", () => {
+    expect(Plants.renderResultList(null)).to.contain("no-results");
+  });
+
+  it("should display plant card if pass an populated array to renderResultList", () => {
+    const plants = [
+      {
+        name: "A plant",
+      },
+    ];
+    expect(Plants.renderResultList(plants)).to.contain("result-list");
   });
 });

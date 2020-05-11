@@ -59,7 +59,11 @@ function renderResultList(plants) {
   if (Array.isArray(plants) && plants.length > 0) {
     let plantsCards = [];
     plants.map((plant) => plantsCards.push(Plants.renderPlantCard(plant)));
-    return plantsCards.join("");
+    return `
+      <div class="result-list">
+        ${plantsCards.join("")}
+      </div>
+    `;
   } else {
     return `
       <div class="no-results">
