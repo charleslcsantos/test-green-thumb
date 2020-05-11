@@ -17,14 +17,18 @@ const $filter = {
 
 (function () {
   function init() {
+    $resultList.innerHTML = Plants.renderResultList(null);
     initFormEvent();
   }
 
   function initFormEvent() {
     $form.addEventListener("change", (e) => {
-      $filter[e.target.name] = e.target.value;
-
-      if ($filter.sunlight && $filter.water && $filter.pet) getPlants();
+      if (e.target.value && e.target.value != "") {
+        $filter[e.target.name] = e.target.value;
+        if ($filter.sunlight && $filter.water && $filter.pet) getPlants();
+      } else {
+        $resultList.innerHTML = Plants.renderResultList(null);
+      }
     });
   }
 
@@ -37,19 +41,12 @@ const $filter = {
 
     result
       .then((plants) => renderList(plants))
-      .catch((err) => console.log("err >>", err));
+      .catch((err) => ($resultList.innerHTML = Plants.renderResultList(null)));
   }
 
   function renderList(plants) {
     console.log("plants", plants);
-
-    let plantsCards = [];
-
-    if (Array.isArray(plants)) {
-      plants.map((plant) => plantsCards.push(Plants.renderPlantCard(plant)));
-    }
-
-    $resultList.innerHTML = plantsCards.join("");
+    $resultList.innerHTML = Plants.renderResultList(plants);
   }
 
   init();

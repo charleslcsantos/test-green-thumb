@@ -55,7 +55,27 @@ function renderPlantFeatureIcons(plant) {
   `;
 }
 
+function renderResultList(plants) {
+  if (Array.isArray(plants) && plants.length > 0) {
+    let plantsCards = [];
+    plants.map((plant) => plantsCards.push(Plants.renderPlantCard(plant)));
+    return plantsCards.join("");
+  } else {
+    return `
+      <div class="no-results">
+        <p>No results yet…</p>
+        <p>
+          Use the filters above to find the plant that best fits your
+          environment :)
+        </p>
+        <img src="" alt="" />
+      </div>
+    `;
+  }
+}
+
 export const Plants = {
   getPlants,
   renderPlantCard,
+  renderResultList,
 };

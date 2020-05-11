@@ -40,3 +40,16 @@ describe("#Plants", () => {
     });
   });
 });
+
+describe("#Render components", () => {
+  it("should display no results component when pass an empty array", () => {
+    expect(Plants.renderResultList([])).to.contain("no-results");
+  });
+
+  it("should display no results component when getPlants return error", (done) => {
+    Plants.getPlants("invalid", "rarely", "false").catch(() => {
+      done();
+      expect(Plants.renderResultList(null)).to.contain("no-results");
+    });
+  });
+});
