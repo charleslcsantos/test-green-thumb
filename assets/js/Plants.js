@@ -7,21 +7,27 @@ function getPlants(sunlight, water, pet) {
   return new Promise((resolve, reject) => {
     if (!sunlight || !water || !pet) {
       reject(new Error("You must select sunlight, water and pet options"));
+      return;
     }
 
     if (!SUNLIGHT_OPTIONS.includes(sunlight)) {
       reject(new Error("The sunlight parameter is not valid"));
+      return;
     }
 
     if (!WATER_OPTIONS.includes(water)) {
       reject(new Error("The water parameter is not valid"));
+      return;
     }
 
     if (!PET_OPTIONS.includes(pet)) {
       reject(new Error("The pet parameter is not valid"));
+      return;
     }
 
-    resolve(fetch(API_URL));
+    fetch(API_URL)
+      .then((res) => resolve(res.json()))
+      .catch((err) => reject(err));
   });
 }
 
