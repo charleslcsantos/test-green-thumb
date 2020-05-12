@@ -34,10 +34,10 @@ function getPlants(sunlight, water, pet) {
 function renderPlantCard(plant) {
   return `
     <div class="card">
-      <img src="${plant.url}" alt="" class="card__pic" />
+      <img src="${plant.url}" alt="Plant preview" class="card__pic" />
       <div class="card__title">${plant.name}</div>
       <div class="card-note">
-        <div class="card__title">${plant.price}</div>
+        <div class="card__title">$${plant.price}</div>
         <div class="card__icons">
           ${renderPlantFeatureIcons(plant)}
           
@@ -55,39 +55,49 @@ function renderPlantFeatureIcons(plant) {
   `;
 }
 
-function renderResultList(plants) {
+function renderResult(plants) {
   if (Array.isArray(plants) && plants.length > 0) {
-    let plantsCards = [];
-    plants.map((plant) => plantsCards.push(Plants.renderPlantCard(plant)));
-    return `
-      <div class="container">
-        <img src="" alt="" />
-        <h2>
-          Our picks for you
-        </h2>
-        <div class="result-list">
-          ${plantsCards.join("")}
-        </div>
-      </div>
-    `;
+    return renderPlantsCards(plants);
   } else {
-    return `
-      <div class="no-results">
-        <div class="container">
-          <p class="no-results__title">No results yet…</p>
-          <p class="no-results__note">
-            Use the filters above to find the plant that best fits your
-            environment :)
-          </p>
-        </div>
-        <img class="no-results__pic" src="./assets/img/no-results.png" alt="No results illustration" />
-      </div>
-    `;
+    return renderNoResultComponent();
   }
+}
+
+function renderPlantsCards(plants) {
+  let plantsCards = [];
+  plants.map((plant) => plantsCards.push(Plants.renderPlantCard(plant)));
+
+  return `
+    <div class="container">
+      <img class="result-list__pic" src="./assets/img/icon-pick.png" alt="Our picks for you" />
+      <h2 class="result-list__title">
+        Our picks for you
+      </h2>
+      </div>
+      <div class="result-list__items">
+        ${plantsCards.join("")}
+      </div>
+      <button class="button "><span class="button__icon icon-seta"></span>back to the top</button>
+  `;
+}
+
+function renderNoResultComponent() {
+  return `
+  <div class="no-results">
+    <div class="container">
+      <h2 class="no-results__title">No results yet…</h2>
+      <p class="no-results__note">
+        Use the filters above to find the plant that best fits your
+        environment :)
+      </p>
+    </div>
+    <img class="no-results__pic" src="./assets/img/no-results.png" alt="No results illustration" />
+  </div>
+`;
 }
 
 export const Plants = {
   getPlants,
   renderPlantCard,
-  renderResultList,
+  renderResult: renderResult,
 };

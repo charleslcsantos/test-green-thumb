@@ -17,7 +17,7 @@ const $filter = {
 
 (function () {
   function init() {
-    $resultList.innerHTML = Plants.renderResultList(null);
+    $resultList.innerHTML = Plants.renderResult(null);
     initFormEvent();
   }
 
@@ -27,7 +27,7 @@ const $filter = {
         $filter[e.target.name] = e.target.value;
         if ($filter.sunlight && $filter.water && $filter.pet) getPlants();
       } else {
-        $resultList.innerHTML = Plants.renderResultList(null);
+        $resultList.innerHTML = Plants.renderResult(null);
       }
     });
   }
@@ -41,12 +41,11 @@ const $filter = {
 
     result
       .then((plants) => renderList(plants))
-      .catch((err) => ($resultList.innerHTML = Plants.renderResultList(null)));
+      .catch((err) => ($resultList.innerHTML = Plants.renderResult(null)));
   }
 
   function renderList(plants) {
-    console.log("plants", plants);
-    $resultList.innerHTML = Plants.renderResultList(plants);
+    $resultList.innerHTML = Plants.renderResult(plants);
   }
 
   init();

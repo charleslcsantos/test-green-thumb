@@ -43,11 +43,11 @@ describe("#Plants", () => {
 
 describe("#Render components", () => {
   it("should display no results component if pass an empty array to renderResultList", () => {
-    expect(Plants.renderResultList([])).to.contain("no-results");
+    expect(Plants.renderResultList([])).to.contain("No results yet…");
   });
 
   it("should display no results component if pass null value to renderResultList", () => {
-    expect(Plants.renderResultList(null)).to.contain("no-results");
+    expect(Plants.renderResultList(null)).to.contain("No results yet…");
   });
 
   it("should display plant card if pass an populated array to renderResultList", () => {
@@ -56,6 +56,6 @@ describe("#Render components", () => {
         name: "A plant",
       },
     ];
-    expect(Plants.renderResultList(plants)).to.contain("result-list");
+    expect(Plants.renderResultList(plants)).to.contain("Our picks for you");
   });
 });
