@@ -5,9 +5,11 @@
 .result-list {
   &__pic {
     margin-top: 10px;
+    padding-left: 40px;
 
     @include min-desktop-size {
       width: 158px;
+      padding-left: 0;
     }
   }
 
@@ -20,10 +22,12 @@
     color: #0c261c;
     margin-top: 15px;
     margin-bottom: 34px;
+    padding-left: 40px;
     @include min-desktop-size {
       font-size: 55px;
       line-height: 67px;
       margin-bottom: 68px;
+      padding-left: 0;
     }
   }
 
