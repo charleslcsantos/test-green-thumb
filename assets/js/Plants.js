@@ -73,11 +73,11 @@ function renderPlantsCards(plants) {
       <h2 class="result-list__title">
         Our picks for you
       </h2>
-      </div>
       <div class="result-list__items">
         ${plantsCards.join("")}
       </div>
       <button class="button "><span class="button__icon icon-seta"></span>back to the top</button>
+    </div>
   `;
 }
 
