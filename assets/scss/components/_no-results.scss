@@ -1,0 +1,40 @@
+.no-results {
+  &__content {
+    padding: 40px 30px 0;
+  }
+  &__title {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 45px;
+    line-height: 55px;
+    color: #a9a9a9;
+    margin-bottom: 15px;
+  }
+
+  &__note {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 27px;
+    color: #a9a9a9;
+    margin-bottom: 50px;
+    max-width: 240px;
+  }
+
+  &__pic {
+    width: 90%;
+    margin: 0 auto;
+    display: block;
+    max-width: 442px;
+  }
+
+  @include min-desktop-size {
+    .container {
+      display: flex;
+      align-items: center;
+      padding: 20px;
+    }
+  }
+}

@@ -1,0 +1,37 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.7rem 2rem;
+  background: transparent;
+  border: 1px solid #15573f;
+  box-sizing: border-box;
+  border-radius: 25px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 20px;
+  color: #196146;
+  transition: all ease 0.2s;
+  &:hover {
+    background: #15573f;
+    color: #fff;
+    .button__icon path {
+      fill: #fff;
+    }
+  }
+
+  &__icon {
+    width: 22px;
+    height: 18px;
+    display: inline-block;
+    margin-right: 10px;
+    background-repeat: no-repeat;
+    &.icon-seta {
+      width: 22px;
+      height: 24px;
+    }
+  }
+}

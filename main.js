@@ -46,9 +46,6 @@ const $filter = {
 
   function renderList(plants) {
     $resultList.innerHTML = Plants.renderResult(plants);
-    if (plants) {
-      initEventScrollToTop();
-    }
   }
 
   window.initEventScrollToTop = () => {

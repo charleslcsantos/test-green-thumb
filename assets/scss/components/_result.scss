@@ -1,0 +1,47 @@
+.result {
+  padding: 0 0.5rem;
+}
+
+.result-list {
+  &__pic {
+    margin-top: 10px;
+
+    @include min-desktop-size {
+      width: 158px;
+    }
+  }
+
+  &__title {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 49px;
+    color: #0c261c;
+    margin-top: 15px;
+    margin-bottom: 34px;
+    @include min-desktop-size {
+      font-size: 55px;
+      line-height: 67px;
+      margin-bottom: 68px;
+    }
+  }
+
+  &__items {
+    display: flex;
+    align-items: center;
+    overflow: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 40px;
+
+    @include min-desktop-size {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      align-items: center;
+      grid-gap: 34px;
+      padding: 0;
+      margin-bottom: 60px;
+    }
+  }
+}

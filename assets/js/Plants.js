@@ -36,7 +36,7 @@ function renderPlantCard(plant) {
     <div class="card">
       <img src="${plant.url}" alt="Plant preview" class="card__pic" />
       <div class="card__title">${plant.name}</div>
-      <div class="card-note">
+      <div class="card__note">
         <div class="card__title">$${plant.price}</div>
         <div class="card__icons">
           ${renderPlantFeatureIcons(plant)}
