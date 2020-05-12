@@ -19,14 +19,14 @@ strong {
   margin: 0 auto;
 
   @include min-tablet-size {
-    width: 95%;
+    width: 85%;
   }
   @include min-desktop-medium-size {
     width: 968px;
   }
-  @include min-desktop-large-size {
-    width: 1260px;
-  }
+  // @include min-desktop-large-size {
+  //   width: 1260px;
+  // }
 }
 
 .section-form {
@@ -38,7 +38,9 @@ strong {
 
 .section-result {
   .container {
-    padding: 40px 30px 10px 40px;
+    @include min-desktop-size {
+      padding: 40px 30px 100px 40px;
+    }
   }
 }
 
@@ -67,6 +69,7 @@ strong {
     flex-direction: row;
     align-items: flex-end;
     padding-bottom: 80px;
+    justify-content: space-between;
   }
 }
 
@@ -74,7 +77,7 @@ strong {
   margin-bottom: 50px;
   @include min-desktop-size {
     margin-bottom: 0;
-    margin-right: 20px;
+    margin-right: 30px;
   }
   &__pic {
     margin-bottom: 0.2rem;
@@ -94,20 +97,27 @@ strong {
 
   &__input {
     position: relative;
-    max-width: 219px;
+    max-width: 250px;
+
+    border: 1px solid #a8a8a8;
+    box-sizing: border-box;
+    border-radius: 50px;
+    width: 100%;
+    background: transparent;
+
     select {
-      border: 1px solid #a8a8a8;
-      box-sizing: border-box;
-      border-radius: 19px;
       width: 100%;
+      padding: 0.4rem 1rem;
+      color: #a8a8a8;
+      -webkit-appearance: none;
+      -moz-appearance: none;
       font-family: Montserrat;
       font-style: normal;
       font-weight: 300;
       font-size: 14px;
       line-height: 27px;
-      padding: 0.5rem 1rem;
+      border: none;
       background: transparent;
-      color: #a8a8a8;
     }
     &::after {
       content: "";
@@ -123,6 +133,9 @@ strong {
 }
 
 .no-results {
+  &__content {
+    padding: 40px 30px 0;
+  }
   &__title {
     font-family: Montserrat;
     font-style: normal;
@@ -141,6 +154,7 @@ strong {
     line-height: 27px;
     color: #a9a9a9;
     margin-bottom: 50px;
+    max-width: 240px;
   }
 
   &__pic {
@@ -149,16 +163,27 @@ strong {
     display: block;
     max-width: 442px;
   }
+
+  @include min-desktop-size {
+    .container {
+      display: flex;
+      align-items: center;
+      padding: 20px;
+    }
+  }
 }
 
 .result {
-  margin-bottom: 40px;
   padding: 0 0.5rem;
 }
 
 .result-list {
   &__pic {
     margin-top: 10px;
+
+    @include min-desktop-size {
+      width: 158px;
+    }
   }
 
   &__title {
@@ -170,6 +195,11 @@ strong {
     color: #0c261c;
     margin-top: 15px;
     margin-bottom: 34px;
+    @include min-desktop-size {
+      font-size: 55px;
+      line-height: 67px;
+      margin-bottom: 68px;
+    }
   }
 
   &__items {
@@ -179,6 +209,15 @@ strong {
     padding-left: 15px;
     padding-right: 15px;
     padding-bottom: 40px;
+
+    @include min-desktop-size {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      align-items: center;
+      grid-gap: 34px;
+      padding: 0;
+      margin-bottom: 60px;
+    }
   }
 }
 
@@ -191,6 +230,12 @@ strong {
   max-width: 268px;
   height: 284px;
   margin-right: 20px;
+
+  @include min-desktop-size {
+    margin-bottom: 40px;
+    margin: 0 auto;
+    box-shadow: none;
+  }
 
   &__pic {
     width: 100%;
@@ -229,6 +274,7 @@ strong {
   font-size: 16px;
   line-height: 20px;
   color: #196146;
+  transition: all ease 0.2s;
   &:hover {
     background: #15573f;
     color: #fff;

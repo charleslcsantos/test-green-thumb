@@ -85,13 +85,15 @@ function renderNoResultComponent() {
   return `
   <div class="no-results">
     <div class="container">
-      <h2 class="no-results__title">No results yet…</h2>
-      <p class="no-results__note">
-        Use the filters above to find the plant that best fits your
-        environment :)
-      </p>
+      <div class="no-results__content">
+        <h2 class="no-results__title">No results yet…</h2>
+        <p class="no-results__note">
+          Use the filters above to find the plant that best fits your
+          environment :)
+        </p>
+      </div>
+      <img class="no-results__pic" src="./assets/img/no-results.png" alt="No results illustration" />
     </div>
-    <img class="no-results__pic" src="./assets/img/no-results.png" alt="No results illustration" />
   </div>
 `;
 }
