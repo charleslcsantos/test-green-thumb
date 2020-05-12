@@ -1,5 +1,8 @@
 .result {
-  padding: 0 0.5rem;
+  padding: 0 0.5rem 3rem;
+  @include min-desktop-size {
+    padding: 0 0.5rem;
+  }
 }
 
 .result-list {
