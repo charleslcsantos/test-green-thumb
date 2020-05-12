@@ -152,13 +152,13 @@ strong {
   height: 0;
   overflow: hidden;
   width: 100%;
-  position: fixed;
+  position: absolute;
   background: #f6f6f6;
   padding: 0;
   transition: all ease 0.2s;
   &.loading--show {
     height: 100%;
-    padding-top: 6rem;
+    padding: 6rem 1rem;
   }
 
   &__text {
