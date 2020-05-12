@@ -42,20 +42,114 @@ describe("#Plants", () => {
 });
 
 describe("#Render components", () => {
-  it("should display no results component if pass an empty array to renderResultList", () => {
-    expect(Plants.renderResultList([])).to.contain("No results yet…");
+  const noResultsContent = '<h2 class="no-results__title">No results yet…</h2>';
+
+  it("should display no results component if pass an empty array to renderResult", () => {
+    expect(Plants.renderResult([])).to.contain(noResultsContent);
   });
 
-  it("should display no results component if pass null value to renderResultList", () => {
-    expect(Plants.renderResultList(null)).to.contain("No results yet…");
+  it("should display no results component if pass null value to renderResult", () => {
+    expect(Plants.renderResult(null)).to.contain(noResultsContent);
   });
 
-  it("should display plant card if pass an populated array to renderResultList", () => {
+  it("should display plant card if pass an populated array to renderResult", () => {
     const plants = [
       {
-        name: "A plant",
+        name: "Ficus lyrata",
+        price: 30,
+        sun: "high",
+        toxicity: false,
+        url:
+          "https://front-static-recruitment.s3.amazonaws.com/ficus-lyrata.jpg",
+        water: "regularly",
       },
     ];
-    expect(Plants.renderResultList(plants)).to.contain("Our picks for you");
+    expect(Plants.renderResult(plants)).to.contain(
+      `<div class="card__title">${plants[0].name}</div>`
+    );
+  });
+
+  it("should display high sun icon", () => {
+    const plant = {
+      name: "Ficus lyrata",
+      sun: "high",
+    };
+    expect(Plants.renderPlantFeatureIcon(plant.sun, "sun")).to.contain(
+      `<img src="./assets/img/icon-high-sun.svg" alt="high sun plant" />`
+    );
+  });
+
+  it("should display low sun icon", () => {
+    const plant = {
+      name: "Ficus lyrata",
+      sun: "low",
+    };
+    expect(Plants.renderPlantFeatureIcon(plant.sun, "sun")).to.contain(
+      `<img src="./assets/img/icon-low-sun.svg" alt="low sun plant" />`
+    );
+  });
+
+  it("should display no sun icon", () => {
+    const plant = {
+      name: "Ficus lyrata",
+      sun: "no",
+    };
+    expect(Plants.renderPlantFeatureIcon(plant.sun, "sun")).to.contain(
+      `<img src="./assets/img/icon-no-sun.svg" alt="no sun plant" />`
+    );
+  });
+
+  it("should display daily water icon", () => {
+    const plant = {
+      name: "Ficus lyrata",
+      water: "daily",
+    };
+    expect(Plants.renderPlantFeatureIcon(plant.water, "water")).to.contain(
+      `<img src="./assets/img/icon-daily-water.svg" alt="daily water plant" />`
+    );
+  });
+
+  it("should display regularly water icon", () => {
+    const plant = {
+      name: "Ficus lyrata",
+      water: "regularly",
+    };
+    expect(Plants.renderPlantFeatureIcon(plant.water, "water")).to.contain(
+      `<img src="./assets/img/icon-regularly-water.svg" alt="regularly water plant" />`
+    );
+  });
+
+  it("should display rarely water icon", () => {
+    const plant = {
+      name: "Ficus lyrata",
+      water: "rarely",
+    };
+    expect(Plants.renderPlantFeatureIcon(plant.water, "water")).to.contain(
+      `<img src="./assets/img/icon-rarely-water.svg" alt="rarely water plant" />`
+    );
+  });
+
+  it("should display no toxicity icon", () => {
+    const plant = {
+      name: "Ficus lyrata",
+      toxicity: false,
+    };
+    expect(
+      Plants.renderPlantFeatureIcon(plant.toxicity, "toxicity")
+    ).to.contain(
+      `<img src="./assets/img/icon-no-toxicity.svg" alt="no toxicity plant" />`
+    );
+  });
+
+  it("should display toxicity icon", () => {
+    const plant = {
+      name: "Ficus lyrata",
+      toxicity: true,
+    };
+    expect(
+      Plants.renderPlantFeatureIcon(plant.toxicity, "toxicity")
+    ).to.contain(
+      `<img src="./assets/img/icon-toxicity.svg" alt="toxicity plant" />`
+    );
   });
 });

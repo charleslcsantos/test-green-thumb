@@ -39,20 +39,30 @@ function renderPlantCard(plant) {
       <div class="card__note">
         <div class="card__title">$${plant.price}</div>
         <div class="card__icons">
-          ${renderPlantFeatureIcons(plant)}
-          
+          ${renderPlantFeatureIcon(plant.toxicity, "toxicity")}
+          ${renderPlantFeatureIcon(plant.sun, "sun")}
+          ${renderPlantFeatureIcon(plant.water, "water")}
         </div>
       </div>
     </div>
   `;
 }
 
-function renderPlantFeatureIcons(plant) {
-  // <div class="icon-high-sun"></div>
-  //             <div class="icon-one-drop"></div>
-  return `
-    <div class="icon-pet"></div>
-  `;
+function renderPlantFeatureIcon(value, key) {
+  switch (key) {
+    case "sun":
+      return `<img src="./assets/img/icon-${value}-sun.svg" alt="${value} sun plant" />`;
+    case "water":
+      return `<img src="./assets/img/icon-${value}-water.svg" alt="${value} water plant" />`;
+    case "toxicity":
+      let parsedValue = !value ? "no-toxicity" : "toxicity";
+      return `<img src="./assets/img/icon-${parsedValue}.svg" alt="${
+        !value ? "no " : ""
+      }toxicity plant" />`;
+
+    default:
+      return ``;
+  }
 }
 
 function renderResult(plants) {
@@ -76,9 +86,9 @@ function renderPlantsCards(plants) {
       <div class="result-list__items">
         ${plantsCards.join("")}
       </div>
-      <button class="button" onclick="window.initEventScrollToTop();"><span class="button__icon icon-seta">${getIcon(
-        "seta"
-      )}</span>back to the top</button>
+      <button class="button" onclick="window.initEventScrollToTop();"><span class="button__icon icon-seta">
+        ${getIcon("seta")}
+      </span>back to the top</button>
     </div>
   `;
 }
@@ -109,5 +119,6 @@ function renderNoResultComponent() {
 export const Plants = {
   getPlants,
   renderPlantCard,
-  renderResult: renderResult,
+  renderResult,
+  renderPlantFeatureIcon,
 };

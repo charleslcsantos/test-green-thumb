@@ -37,5 +37,22 @@
 
   &__note {
     margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__icons {
+    display: flex;
+    align-items: center;
+    img {
+      width: 32px;
+      height: 21px;
+      margin-right: 0.1rem;
+      transition: all ease 0.2s;
+      &:hover {
+        filter: contrast(5);
+      }
+    }
   }
 }
