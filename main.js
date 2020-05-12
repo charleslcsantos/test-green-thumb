@@ -2,9 +2,7 @@
 
 import { Plants } from "./assets/js/Plants.js";
 
-const $sunlight = document.querySelector("[data-js=sunlight]");
-const $water = document.querySelector("[data-js=water]");
-const $pet = document.querySelector("[data-js=pet]");
+const $loaderComponent = document.querySelector("[data-js=loader]");
 
 const $resultList = document.querySelector("[data-js=resultList]");
 
@@ -33,6 +31,7 @@ const $filter = {
   }
 
   function getPlants() {
+    showLoader();
     const result = Plants.getPlants(
       $filter.sunlight,
       $filter.water,
@@ -45,7 +44,18 @@ const $filter = {
   }
 
   function renderList(plants) {
+    showLoader(false);
     $resultList.innerHTML = Plants.renderResult(plants);
+  }
+
+  function showLoader(condition) {
+    if (condition == false) {
+      $loaderComponent.classList.remove("loading--show");
+      return;
+    }
+
+    $loaderComponent.classList.add("loading--show");
+    return;
   }
 
   window.initEventScrollToTop = () => {

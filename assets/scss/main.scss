@@ -41,6 +41,7 @@ strong {
 }
 
 .section-result {
+  position: relative;
   .container {
     @include min-desktop-size {
       padding: 40px 30px 100px 40px;
@@ -144,5 +145,32 @@ strong {
       background-image: url(../../assets/img/icon-arrow.png);
       background-repeat: no-repeat;
     }
+  }
+}
+
+.loading {
+  height: 0;
+  overflow: hidden;
+  width: 100%;
+  position: fixed;
+  background: #f6f6f6;
+  padding: 0;
+  transition: all ease 0.2s;
+  &.loading--show {
+    height: 100%;
+    padding-top: 6rem;
+  }
+
+  &__text {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 55px;
+    color: #a9a9a9;
+    margin-bottom: 15px;
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
   }
 }
