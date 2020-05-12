@@ -1,5 +1,8 @@
 # test-green-thumb
 
+Preview this site:
+https://github.com/charleslcsantos/test-green-thumb
+
 ## Installing / Getting started
 
 To run this project, you just need clone this repository in your HTTP server (like nginx or apache).
