@@ -41,12 +41,24 @@ const $filter = {
 
     result
       .then((plants) => renderList(plants))
-      .catch((err) => ($resultList.innerHTML = Plants.renderResult(null)));
+      .catch((err) => renderList(null));
   }
 
   function renderList(plants) {
     $resultList.innerHTML = Plants.renderResult(plants);
+    if (plants) {
+      initEventScrollToTop();
+    }
   }
+
+  window.initEventScrollToTop = () => {
+    const scrollStep = -window.scrollY / (200 / 15),
+      scrollInterval = setInterval(function () {
+        if (window.scrollY != 0) {
+          window.scrollBy(0, scrollStep);
+        } else clearInterval(scrollInterval);
+      }, 15);
+  };
 
   init();
 })();
